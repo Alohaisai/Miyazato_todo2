@@ -14,6 +14,8 @@ document.getElementById('add')
       ('task').value);
       console.log(data);
     localStorage.setItem('task', JSON.stringify(data));
+    document.getElementById
+      ('task').value= '';
   }
 );
 
