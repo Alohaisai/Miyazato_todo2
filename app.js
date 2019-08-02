@@ -32,6 +32,20 @@ for (const value of data) {
 function createDOM( value ) {
   let list = document.createElement('li');
   list.textContent = value;
+
+  let button = document.createElement('button');
+  button.textContent = '削除';
+  list.appendChild(button);
+
+
+  button.addEventListener('click', function(){
+    this.parentNode.remove();
+    data.splice(data.indexOf(this.parentNode.textContent.slice(0, -2)),1);
+    console.log(data);
+    localStorage.setItem('task', JSON.stringify(data));
+  })
+
+
   document.getElementById('list').appendChild(list);
 
 }
