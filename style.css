@@ -48,10 +48,12 @@ h1 {
   font-weight: bold;
 }
 
-/* #list li{
-  width: 200px;
+#list li{
+  font-size: 20px;
+  margin: 20px;
+  font-weight: bold;
 }
 
-#list {
+/* #list {
   text-align: center;
 } */

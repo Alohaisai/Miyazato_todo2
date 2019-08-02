@@ -8,14 +8,16 @@ document.getElementById('add')
 .addEventListener('click',
 // 登録
   function(){
-    data.push(document.getElementById
-      ('task').value);
-    createDOM(document.getElementById
-      ('task').value);
-      console.log(data);
+    const task = document.getElementById
+    ('task').value;
+// taskの値を配列dataに追加
+    data.push(task.value);
+// taskを追加
+    createDOM(task.value);
+// dataをローカルストレージに保存
     localStorage.setItem('task', JSON.stringify(data));
-    document.getElementById
-      ('task').value= '';
+//タスクのvalueを初期化
+    task.value= '';
   }
 );
 
@@ -44,10 +46,12 @@ function createDOM( value ) {
     this.parentNode.remove();
     data.splice(data.indexOf(this.parentNode.textContent.slice(0, -2)),1);
     console.log(data);
-    localStorage.setItem('task', JSON.stringify(data));
+    dataUpdated();
   })
 
-
   document.getElementById('list').appendChild(list);
+}
 
+function dataUpdated() {
+  localStorage.setItem('task', JSON.stringify(data));
 }
